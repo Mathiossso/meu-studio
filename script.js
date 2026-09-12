@@ -1,9 +1,23 @@
-const mobileBtn  = document.querySelector('.btn-mobile');
-const navlinks  = document.getElementById('nav-links');
-const iocn  = document.querySelector('.btn-mobile i')
+const menuButton = document.getElementById('menuButton');
+const menu = document.getElementById('menu');
 
-mobileBtn.addEventListener('click',() =>{
-    navlinks.classList.toggle('show')
-    iocn.classList.toggle("fa-times")
-    iocn.classList.toggle("fa-bars")
-})
+if (menuButton && menu) {
+    menuButton.addEventListener('click', () => {
+        menuButton.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+}
+
+const cursor = document.querySelector('.cursor');
+if (cursor) {
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    const interactiveElements = document.querySelectorAll('a, button');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => cursor.classList.add('big'));
+        element.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+    });
+}

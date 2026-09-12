@@ -12,9 +12,10 @@ html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    background: #111;
-    color: #b94d05;
+    background: #bbb1b1;
+    color: #412410;
     font-family: "Inter", sans-serif;
     font-weight: 300;
     overflow-x: hidden;
@@ -95,11 +96,14 @@ button{
     mix-blend-mode: difference;
 
     color: white;
+
+    isolation: isolate;
 }
 
 .logo {
-    font-size: 15px;
+    font-size: 30px;
     letter-spacing: -.03em;
+
 }
 
 .logo span {
