@@ -1,0 +1,691 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #111;
+    color: #b94d05;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button{
+    border: none;
+    background:local;
+    font: inherit;
+    cursor: pointer;
+    color: #b94d05;
+}
+
+
+/* =========================================
+   CURSOR
+========================================= */
+
+.cursor {
+    position: fixed;
+
+    width: 12px;
+    height: 12px;
+
+    background: #111;
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+        width .3s ease,
+        height .3s ease,
+        background .3s ease;
+}
+
+.cursor.big {
+    width: 50px;
+    height: 50px;
+    background: rgba(17,17,17,.1);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 1000;
+
+    mix-blend-mode: difference;
+
+    color: white;
+}
+
+.logo {
+    font-size: 15px;
+    letter-spacing: -.03em;
+}
+
+.logo span {
+    font-size: 8px;
+    vertical-align: top;
+}
+
+
+/* =========================================
+   MENU BUTTON
+========================================= */
+
+.menu-button {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    gap: 7px;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 28px;
+    height: 1px;
+
+    background: currentColor;
+
+    transition: transform .4s ease;
+}
+
+.menu-button.active span:first-child {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.menu-button.active span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+
+/* =========================================
+   FULL SCREEN MENU
+========================================= */
+
+.menu {
+    position: fixed;
+    width: 100%;
+    inset: 0;
+    left: 0;
+    top: 0;
+    background: #111;
+    color: #b1900f;
+    height: 100dvh;
+    z-index: 999;
+
+    overflow-y: auto;
+
+    transform: translateY(-100%);
+
+    transition: transform .7s cubic-bezier(.77,0,.18,1);
+}
+
+.menu.active {
+    transform: translateY(0);
+}
+
+.menu-inner {
+    height: 100%;
+
+    padding: 120px 40px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-links a {
+    font-size: clamp(45px, 8vw, 110px);
+
+    line-height: .95;
+
+    letter-spacing: -.06em;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #333;
+
+    padding: 12px 0;
+
+    transition: padding .4s ease;
+}
+
+.menu-links a:hover {
+    padding-left: 25px;
+}
+
+.menu-links span {
+    font-size: 12px;
+    letter-spacing: 0;
+    align-self: flex-start;
+}
+
+.menu-footer {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: #888;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 150px 40px 40px;
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    align-items: center;
+}
+
+.hero-text {
+    z-index: 2;
+}
+
+.eyebrow {
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 10vw, 150px);
+
+    font-weight: 300;
+
+    line-height: .82;
+
+    letter-spacing: -.08em;
+}
+
+.hero h1 i {
+    font-family: Georgia, serif;
+
+    font-weight: 400;
+}
+
+.hero-image {
+    height: 75vh;
+
+    overflow: hidden;
+}
+
+.hero-image img {
+    height: 100%;
+
+    transition: transform 1.2s cubic-bezier(.2,.6,.2,1);
+}
+
+.hero-image:hover img {
+    transform: scale(1.04);
+}
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 35px;
+    left: 40px;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+}
+
+
+/* =========================================
+   PROJECTS
+========================================= */
+
+.projects {
+    padding: 180px 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 70px;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .07em;
+}
+
+.filters {
+    display: flex;
+    gap: 25px;
+}
+
+.filter {
+    color: #888;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    transition: color .3s ease;
+}
+
+.filter:hover,
+.filter.active {
+    color: #111;
+}
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 25px;
+
+    row-gap: 130px;
+}
+
+.project:nth-child(even) {
+    margin-top: 180px;
+}
+
+.project-image {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #ddd;
+}
+
+.project:nth-child(1) .project-image {
+    aspect-ratio: 4 / 5;
+}
+
+.project:nth-child(2) .project-image {
+    aspect-ratio: 4 / 3;
+}
+
+.project:nth-child(3) .project-image {
+    aspect-ratio: 4 / 5;
+}
+
+.project:nth-child(4) .project-image {
+    aspect-ratio: 4 / 3;
+}
+
+.project:nth-child(5) .project-image {
+    aspect-ratio: 4 / 5;
+}
+
+.project-image img {
+    height: 100%;
+
+    transition:
+        transform 1s cubic-bezier(.2,.6,.2,1);
+}
+
+.project:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-number {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    color: white;
+
+    font-size: 11px;
+}
+
+.project-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #bbb;
+
+    margin-top: 12px;
+}
+
+.project-info h2 {
+    font-size: 20px;
+
+    font-weight: 300;
+
+    letter-spacing: -.04em;
+}
+
+.project-info div {
+    display: flex;
+    gap: 30px;
+
+    font-size: 10px;
+
+    color: #777;
+}
+
+
+/* =========================================
+   MANIFESTO
+========================================= */
+
+.manifesto {
+    padding: 150px 40px;
+
+    border-top: 1px solid #bbb;
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr 1fr;
+
+    gap: 40px;
+}
+
+.manifesto-small {
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .07em;
+}
+
+.manifesto-text p {
+    font-size: clamp(40px, 5vw, 75px);
+
+    line-height: .95;
+
+    letter-spacing: -.06em;
+}
+
+.manifesto-text i {
+    font-family: Georgia, serif;
+}
+
+.text-link {
+    align-self: end;
+
+    justify-self: end;
+
+    border-bottom: 1px solid #111;
+
+    padding-bottom: 5px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    background: #111;
+
+    color: #f2f1ed;
+
+    padding: 120px 40px 30px;
+}
+
+.footer-top {
+    min-height: 60vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.footer h2 {
+    font-size: clamp(55px, 8vw, 120px);
+
+    line-height: .85;
+
+    letter-spacing: -.07em;
+
+    font-weight: 300;
+}
+
+.footer h2 i {
+    font-family: Georgia, serif;
+}
+
+.footer-contact {
+    font-size: 13px;
+
+    border-bottom: 1px solid #666;
+
+    padding-bottom: 7px;
+
+    width: max-content;
+
+    transition: border-color .3s ease;
+}
+
+.footer-contact:hover {
+    border-color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #777;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+.footer-bottom a {
+    color: #f2f1ed;
+}
+
+
+/* =========================================
+   HIDDEN PROJECT
+========================================= */
+
+.project.hidden {
+    display: none;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        padding: 22px 20px;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+    .hero {
+        padding: 120px 20px 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 50px;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .hero-image {
+        height: 65vh;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .projects {
+        padding: 100px 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+
+        gap: 30px;
+    }
+
+    .filters {
+        gap: 18px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+
+        row-gap: 80px;
+    }
+
+    .project:nth-child(even) {
+        margin-top: 0;
+    }
+
+    .project-info {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .project-info div {
+        justify-content: space-between;
+    }
+
+    .manifesto {
+        padding: 100px 20px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 50px;
+    }
+
+    .manifesto-text p {
+        font-size: 50px;
+    }
+
+    .text-link {
+        align-self: flex-start;
+        justify-self: auto;
+    }
+
+    .footer {
+        padding: 80px 20px 25px;
+    }
+
+    .footer-top {
+        min-height: 65vh;
+    }
+
+    .footer h2 {
+        font-size: 60px;
+    }
+
+    .footer-bottom {
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .menu-inner {
+        padding: 120px 20px 25px;
+    }
+
+    .menu-links a {
+        font-size: 55px;
+    }
+
+}
